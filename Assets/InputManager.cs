@@ -3,13 +3,7 @@ using UnityEngine.Events;
 
 public class InputManager : MonoBehaviour
 {
-    public UnityEvent<Vector2> OnMove = new UnityEvent<Vector2>();
-    void Start()
-    {
-        
-    }
-
-    
+    public UnityEvent<Vector2> OnMove = new UnityEvent<Vector2>(); 
     void Update()
     {
         Vector2 inputVector = Vector2.zero;

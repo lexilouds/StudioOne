@@ -4,14 +4,8 @@ public class BallController : MonoBehaviour
 {
     [SerializeField] private Rigidbody sphereRigidBody;
     [SerializeField] float ballSpeed;
-
     [SerializeField] float jumpForce;
     [SerializeField] private bool isGrounded;
-    
-    void Start()
-    {
-        
-    }
 
     public void MoveBall(Vector2 input)
     {
