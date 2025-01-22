@@ -4,6 +4,9 @@ public class BallController : MonoBehaviour
 {
     [SerializeField] private Rigidbody sphereRigidBody;
     [SerializeField] float ballSpeed;
+
+    [SerializeField] float jumpForce;
+    [SerializeField] private bool isGrounded;
     
     void Start()
     {
@@ -18,6 +21,21 @@ public class BallController : MonoBehaviour
 
     void Update()
     {
-       
+       if (Input.GetKeyDown(KeyCode.Space) && isGrounded) {
+            Jump();
+       }
+    }
+
+    void Jump() 
+    {
+        sphereRigidBody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        isGrounded = false;
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground")) {
+            isGrounded = true;
+        }
     }
 }
